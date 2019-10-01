@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>game doan so</title>
+</head>
+<body>
+<button id="choi" onclick="nhapSo()">Choi</button>
+
+<script>
+    function nhapSo() {
+        let numMax = prompt("so max la");
+        numMax = parseInt(numMax);
+        let numMin = prompt("so min la")
+        numMin = parseInt(numMin);
+        let khoang = (numMax - numMin) + 1;
+        let numberRandom = Math.floor(Math.random() * khoang);
+        let selectNum = prompt("so ban chon la");
+        selectNum = parseInt(selectNum);
+        while (selectNum != numberRandom) {
+
+            if (selectNum > numberRandom) {
+                alert("so ban chon lon hon so bi mat");
+                selectNum = parseInt(prompt("lon hon.so ban chon lai la"));
+            } else if (selectNum < numberRandom) {
+                alert("so ban chon nho hon so bi mat");
+                selectNum = parseInt(prompt("nho hon.so ban chon lai la"));
+            } else {
+                alert("chinh xac");
+            }
+
+
+        }
+
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>30 so chia het 7</title>
+</head>
+<body>
+<button onclick="tt()">ket qua</button>
+<script>
+    let count = 0;
+    let limit = 30;
+    let sum = 0;
+    let number = 0;
+    function tt() {
+        // let sum = 0;
+        // for (let i = 7; i <= 210; i++) {
+        //     if (i % 7 === 0) {
+        //         sum = sum + i;
+        //     }
+        //
+        // }
+        //
+        // alert(sum);
+        while(count <= limit){
+            if (number % 7 === 0) {
+                sum = sum + number;
+                count++;
+            }
+            number++;
+        }
+        alert(sum);
+
+    }
+</script>
+
+</body>
+</html>

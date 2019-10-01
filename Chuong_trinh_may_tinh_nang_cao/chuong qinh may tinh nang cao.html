@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>May tinh nang cao</title>
+    <style>
+        button {
+            height: 40px;
+            width: 40px;
+        }
+
+        form {
+            text-align: center;
+            margin: 0 auto;
+            width: 20%;
+            margin-left: 40%;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <table border="1">
+        <tr>
+            <td colspan="4">
+                <input id="ketqua" type="text" style="height: 40px; font-size: 18px"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                <button id="so1" type="button" value="1" onclick="ketqua.value+=this.value">1</button>
+            </td>
+            <td>
+                <button id="so2" type="button" value="2" onclick="ketqua.value+=this.value">2</button>
+            </td>
+            <td>
+                <button id="so3" type="button" value="3" onclick="ketqua.value+=this.value">3</button>
+            </td>
+            <td>
+                <button id="cong" type="button" value="+" onclick="ketqua.value+=this.value">+</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="so4" type="button" value="4" onclick="ketqua.value+=this.value">4</button>
+            </td>
+            <td>
+                <button id="so5" type="button" value="5" onclick="ketqua.value+=this.value">5</button>
+            </td>
+            <td>
+                <button id="so6" type="button" value="6" onclick="ketqua.value+=this.value">6</button>
+            </td>
+            <td>
+                <button id="tru" type="button" value="-" onclick="ketqua.value+=this.value">-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="so7" type="button" value="7" onclick="ketqua.value+=this.value">7</button>
+            </td>
+            <td>
+                <button id="so8" type="button" value="8" onclick="ketqua.value+=this.value">8</button>
+            </td>
+            <td>
+                <button id="so9" type="button" value="9" onclick="ketqua.value+=this.value">9</button>
+            </td>
+            <td>
+                <button id="nhan" type="button" value="*" onclick="ketqua.value+=this.value">x</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="so0" type="button" value="0" onclick="ketqua.value+=this.value">0</button>
+            </td>
+            <td>
+                <button id="clear" type="button" onclick="del()">C</button>
+            </td>
+            <td>
+                <button id="bang" type="button" style="background: coral" onclick="tinh()">=</button>
+            </td>
+            <td>
+                <button id="chia" type="button" value="/" onclick="ketqua.value+=this.value">/</button>
+            </td>
+        </tr>
+    </table>
+    <script src= "mayTinhNangCao.js"></script>
+</form>
+</body>
+</html>

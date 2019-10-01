@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lam lai so nguyen to</title>
+</head>
+<body>
+<table border="1">
+    <input id="hienthi"/>
+    <button id="nutnhan" onclick="kiemtra()">ket qua</button>
+    <p id="hienthiketqua"></p>
+</table>
+<script>
+    let x = document.getElementById("hienthiketqua");
+    let numberInput = document.getElementById("hienthi");
+    
+    function kiemtra(number) {
+        let num = parseInt(number);
+        for (let i = 2; i < num -1; i++){
+            if (num % i === 0){
+                x.innerHTML = "khong phai so nguyen to";
+            }
+        }
+        return true;
+
+        
+    }
+
+</script>
+
+</body>
+</html>

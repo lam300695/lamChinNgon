@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test7</title>
+</head>
+<body>
+<fieldset>
+    <legend><h3>Tu Dien</h3></legend>
+    <p>Nhap tieng anh : <input id="inputEng"/></p>
+    <p id="changeViet"/>
+    <p>
+        <button onclick="Translate()">Translate</button>
+    </p>
+    <script>
+
+        function Translate() {
+            let arr1 = ["book", "cat", "dog", "store","water"];
+            let arr2 = ["quyen sach", "con meo", "con cho", "cua hang","nuoc"];
+            let x = document.getElementById("changeViet");
+            let num = document.getElementById("inputEng");
+            for (let i = 0; i <= arr1.length - 1; i++) {
+                if (num.value === arr1[i]) {
+                    x.innerHTML = arr2[i];
+                    return;
+                }
+
+            }
+            x.innerHTML = "khong co";
+
+        }
+
+    </script>
+</fieldset>
+</body>
+</html>

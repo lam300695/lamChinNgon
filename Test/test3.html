@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test3</title>
+</head>
+<body>
+<script>
+    function findMax() {
+        let arr = [1, 2, 3, 4, 5, 6];
+        let max = arr[0];
+        let index = 0;
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+                index = i;
+            }
+        }
+        alert("max : " + max + "at position" + index);
+    }
+
+    findMax();
+</script>
+
+</body>
+</html>

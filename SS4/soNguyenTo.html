@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>So nguyen to</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>
+            <input id="hienthi" type="number">
+        </td>
+        <td>
+            <button type="button" onclick=" getAll(5)">Ket qua</button>
+        </td>
+    </tr>
+    <tr>
+        <p id="display"></p>
+    </tr>
+</table>
+<script>
+    let x = document.getElementById("display");
+    let numberInput = document.getElementById("hienthi");
+
+    function kiemtra(number) {
+        let num = parseInt(number);
+        for (let i = 2; i < num - 1; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function getAll() {
+        let countNumber =parseInt(numberInput.value);
+        let count = 0;
+        let num = 2;
+        while (count < countNumber){
+            if (kiemtra(num)){
+                x.innerHTML += num+", ";
+                count++;
+            }
+            num++;
+        }
+    }
+
+
+</script>
+</body>
+</html>
