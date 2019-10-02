@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyen doi nhiet do</title>
+</head>
+<body style="background: #ffadd7">
+<fieldset style="background: bisque">
+    <legend><h1>Temperature Converter</h1></legend>
+    <p><b>Type a value in the Fahtrenheit field to convert the value to Celcius</b></p><br>
+    <b>Fahrennheit : </b> <input id="display">
+    <button onclick="tempeture()" style="background: hotpink">Ket Qua</button>
+    <p id="displayresult"></p>
+    <script>
+        function temperatureConverter(tempetureF) {
+            tempetureC = (tempetureF - 32) / 1.8;
+            return tempetureC;
+        }
+
+        function tempeture(tempetureF) {
+            let x = document.getElementById("displayresult");
+            tempetureF = document.getElementById("display").value;
+            tempetureF = parseInt(tempetureF);
+            let result = temperatureConverter(tempetureF);
+            x.innerHTML = result;
+        }
+    </script>
+</fieldset>
+
+</body>
+</html>
