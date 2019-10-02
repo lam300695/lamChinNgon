@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Metters To Feet</title>
+</head>
+<body>
+<fieldset>
+    <legend><h3>Converter Meters and Feet</h3></legend>
+    <table>
+        <tr>
+            <td>
+                <input id="inputNum"/>
+            </td>
+            <td>
+                <select id="select1">
+                    <option value="Meters">Meters</option>
+                    <option value="Feet">Feet</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="outputNum"/>
+            </td>
+            <td>
+                <select id="select2">
+                    <option value="Feet">Feet</option>
+                    <option value="Meters">Meters</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="Converter()">Converter</button>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+<script>
+    function Converter() {
+        let inputNum = parseInt(document.getElementById("inputNum").value);
+        let met1 = document.getElementById("select1").value;
+        let met2 = document.getElementById("select2").value;
+        let result;
+        if (met1 === met2) {
+            result = inputNum;
+        } else if (met1 === "Meters" && met2 === "Feet") {
+            result = inputNum * 3.279;
+        } else {
+            result = inputNum / 3.279;
+        }
+        document.getElementById("outputNum").value = result;
+    }
+</script>
+</body>
+</html>
