@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TimGiaTriNhoNhat</title>
+</head>
+<body>
+<script>
+    // function minArray(arr) {
+    //     let min = arr[0];
+    //     for (let i = 1; i <= arr.length; i++) {
+    //         if (arr[i] < min) {
+    //             arr[i] = min;
+    //         }
+    //     }
+    //     return min;
+    // }
+
+    // function minArray2() {
+    //     let arr2 = [7, 12, 6, 9, 20, 56, 89];
+    //     let result = minArray(arr2);
+    //     alert(result);
+    // }
+    //
+    // minArray2();
+
+    function minArray(arr) {
+        if (arr.length === 0)
+            return -1;
+        let min = arr[0];
+        for (let i = 1; i <= arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    // function minArray3() {
+    //     let arr3 = [];
+    //     let result = minArray(arr3);
+    //     alert(result);
+    // }
+    // minArray3();
+
+    function minArray4() {
+        let arr4 =[0,0,0,0,];
+        let result = minArray(arr4);
+        alert(result);
+    }
+    minArray4();
+</script>
+
+</body>
+</html>
