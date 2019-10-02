@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>soNguyenTo</title>
+</head>
+<body>
+<fieldset>
+    <legend>So Nguyen To</legend>
+    <input id="inputNum">
+    <p id="outputNum"></p>
+    <button onclick="check()">Ket qua</button>
+    <script>
+        let x = document.getElementById("outputNum");
+
+        function checkNum(number) {
+            let num = parseInt(number);
+            for (let i = 2; i < num - 1; i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function check() {
+            let numCount = parseInt(document.getElementById("inputNum").value);
+            let count = 0;
+            let num = 2;
+            for (count = 0; count <= numCount; count++) {
+                if (checkNum(num)) {
+                    x.innerHTML += num + ",";
+                    count++;
+                }
+                num++;
+            }
+        }
+
+
+    </script>
+</fieldset>
+
+</body>
+</html>
