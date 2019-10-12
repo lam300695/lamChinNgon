@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lt2</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1750px" height="750px" style=" border: 1px solid #d3d3d3;"></canvas>
+<script>
+    const RIGHT = "right";
+    const LEFT = "left";
+    const UP = "up";
+    const DOWN = "down";
+    const default_speed = 20;
+    let direct = "";
+    let circles = [];
+    window.addEventListener("keydown", changeDirect);
+
+    function Circle(x, y, radius, color) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.speed = default_speed;
+        this.color = color;
+        this.direct = 'right';
+    }
+
+    function randomHex() {
+        return Math.floor(Math.random() * 255);
+    }
+
+    function createColor() {
+        let red = randomHex();
+        let blue = randomHex();
+        let green = randomHex();
+        return "rgb(" + red + "," + blue + "," + green + ")";
+    }
+
+    function createCircle() {
+        ctx = document.getElementById("myCanvas").getContext("2d");
+        let x = Math.random() * window.innerWidth;
+        let y = Math.random() * window.innerHeight;
+        let radius = Math.random() * 80;
+        let color = createColor();
+        let circle = new Circle(x, y, radius, color);
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        ctx.fillStyle = Color;
+        ctx.fill();
+        circles.push(circle);
+    }
+
+    function multiCircle() {
+        for (let i = 0; i < 80; i++) {
+            createCircle();
+        }
+    }
+
+    function setDirect(obj) {
+        switch (obj.direct) {
+            case "right":
+                obj.moveRight();
+                break;
+            case "left":
+                obj.moveLeft();
+                break;
+            case "down":
+                obj.moveDown();
+                break;
+            case "up":
+                obj.moveUp();
+                break;
+        }
+    }
+
+    function changeDirect(event) {
+        switch (event.which) {
+            case 37:
+                direct = LEFT;
+                break;
+            case 38:
+                direct = UP;
+                break;
+            case 39:
+                direct = RIGHT;
+                break;
+            case 40:
+                direct = DOWN;
+                break;
+        }
+    }
+
+</script>
+</body>
+</html>

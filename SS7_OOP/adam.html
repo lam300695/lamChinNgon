@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adam</title>
+</head>
+<body>
+<script>
+    function Apple(weight) {
+        this.weight = weight;
+
+        this.dicriWeight = function () {
+            this.weight--;
+        }
+        this.check = function () {
+            if (weight > 0) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
+    function Human(name, gender, weigh) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weigh;
+
+        this.eat = function (apple) {
+            if (!apple.check()) {
+                apple.dicriWeight();
+                this.increWeight();
+            } else {
+                alert("Het tao roi");
+            }
+            this.increWeight = function () {
+                weigh++;
+            }
+            this.getInfo = function () {
+                alert(this.name + " Can nang la : " + this.weight);
+            }
+        }
+    }
+    let apple = new Apple(10);
+    let adam = new Human("Adam", "Male", 75);
+    let evar = new Human("Evar", "Falemale", 55);
+    adam.eat();
+    console.log(adam.getInfo());
+</script>
+
+</body>
+</html>

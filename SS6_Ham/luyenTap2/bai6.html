@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 6</title>
+</head>
+<body>
+<script>
+    function changeNumber(a, b) {
+        let temp = a;
+        a = b;
+        b = temp;
+        return ;
+    }
+
+    function change() {
+        let a = 5;
+        let b = 6;
+        changeNumber(a,b);
+        document.write("a = " + a + " ; b = " + b);
+    }
+
+    change();
+</script>
+
+</body>
+</html>

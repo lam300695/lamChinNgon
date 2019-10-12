@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dap Gach</title>
+</head>
+<body>
+<canvas id="myCanvas" width="900 px" height="500 px"
+        style=" background : aliceblue ;border: 1px solid #d30106;"></canvas>
+<script>
+    let canvas, ctx, _ball, _pad, _brick;
+    canvas = document.getElementById("myCanvas");
+    ctx = canvas.getContext("2d");
+    _ball = new Ball();
+    _pad = new Pad();
+    _brick = new Brick();
+    update();
+
+    document.addEventListener('keypress', function (event) {
+        if (event.keyCode === 37) {
+            _pad.x -= _pad.speed;
+        } else if (event.keyCode === 39) {
+            _pad.x += _pad.speed;
+        }
+    });
+    document.addEventListener('keydown', function (event) {
+        if (event.keyCode === 37) {
+            _pad.x -= _pad.speed;
+        } else if (event.keyCode === 39) {
+            _pad.x += _pad.speed;
+        }
+    });
+
+    function update() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        _ball.checkColission();
+        _ball.move();
+        _ball.draw();
+        _ball.brockPad();
+        _pad.draw();
+        _pad.checkPad();
+        _brick.draw();
+        if (_ball.brock()) {
+            alert("game over");
+            this.stop();
+        }
+        window.requestAnimationFrame(update);
+    }
+
+    // let brickConfig = {
+    //     offsetX: 50,
+    //     offsetY: 50,
+    //     magin: 100,
+    //     width: 80,
+    //     height: 20,
+    //     totalRow: 3,
+    //     totalCol: 4,
+    // };
+    //
+    // let brickList = [];
+    // for (let i = 0; i < brickConfig.totalRow; i++) {
+    //     for (let j = 0; j < brickConfig.totalCol; j++) {
+    //         brickList.push({
+    //             x: brickConfig.offsetX + j * (brickConfig.width + brickConfig.magin),
+    //             y: brickConfig.offsetY + i * (brickConfig.height + brickConfig.magin),
+    //             isBroken: false
+    //         });
+    //     }
+    // }
+
+    function Brick() {
+
+        this.draw = function () {
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 5; j++) {
+                    ctx.beginPath();
+                    ctx.rect(
+                        50 + j * (80 + 100),
+                        50 + i * (50 + 20),
+                        80,
+                        50
+                    );
+                    ctx.fillStyle = "red";
+                    ctx.fill();
+                    ctx.closePath();
+                }
+            }
+        }
+    }
+
+    function Pad() {
+        this.width = 120;
+        this.height = 10;
+        this.x = 350;
+        this.y = canvas.height - 10;
+        this.speed = 50;
+
+        this.draw = function () {
+            ctx.beginPath();
+            ctx.rect(this.x, this.y, this.width, this.height);
+            ctx.fillStyle = "green";
+            ctx.fill();
+            ctx.closePath();
+        };
+        this.checkPad = function () {
+            if (this.x <= 0) {
+                this.x = 0;
+            } else if (this.x >= canvas.width - this.width) {
+                this.x = canvas.width - this.width;
+            }
+        };
+    }
+
+    function Ball() {
+        this.x = 450;
+        this.y = 460;
+        this.radius = 20;
+        this.speedX = 5;
+        this.speedY = -5;
+
+        this.draw = function () {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "pink";
+            ctx.fill();
+            ctx.closePath();
+        };
+
+        this.move = function () {
+            this.x += this.speedX;
+            this.y += this.speedY;
+        };
+        this.checkColission = function () {
+            if (this.x + this.radius >= canvas.width || this.x - this.radius <= 0) {
+                this.speedX = -this.speedX;
+            } else if (this.y - this.radius <= 0) {
+                this.speedY = -this.speedY;
+            }
+        };
+
+        this.brock = function () {
+            return (this.y + this.radius) >= canvas.height;
+        };
+        this.brockPad = function () {
+            if (this.x + this.radius >= _pad.x && this.x + this.radius <= _pad.x + _pad.width && this.y + this.radius >= canvas.height - _pad.height) {
+                this.speedY = -this.speedY;
+            }
+        }
+    }
+</script>
+</body>
+</html>

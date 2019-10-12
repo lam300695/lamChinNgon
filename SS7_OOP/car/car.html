@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car</title>
+</head>
+<body>
+<p id="display1"></p>
+<p id="display2"></p>
+<button onclick="display()">KQ</button>
+<script>
+    let x = document.getElementById("display1");
+    let y = document.getElementById("display2");
+    let person = {
+        name: ['Lâm', 'Hiếu'],
+        age: [24, 22],
+        gender: ['Male', 'Female'],
+        ten1: function () {
+            x.innerHTML = ("Tên : " + this.name[0] + ", Tuổi : " + this.age[0] + ", Gioi tinh :" + this.gender[0]);
+        },
+        ten2: function () {
+            y.innerHTML = ("Ten : " + this.name[1] + ", Tuoi : " + this.age[1] + ", Gioi tinh : " + this.gender[1]);
+        },
+    };
+    function display() {
+        person.ten1();
+        person.ten2();
+    }
+</script>
+</body>
+</html>

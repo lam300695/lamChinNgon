@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 4</title>
+</head>
+<body>
+<script>
+    function findMin() {
+        let a = parseInt(prompt("nhap so thu nhat"));
+        let b = parseInt(prompt("nhap vao so thu hai"));
+        let c = parseInt(prompt("nhap vao so thu ba"));
+        let min = a;
+        if (b < a) {
+            min = b;
+        } else if (c < a) {
+            min = c;
+        }
+        alert("so nho nhat la " + min);
+    }
+    findMin();
+</script>
+
+</body>
+</html>

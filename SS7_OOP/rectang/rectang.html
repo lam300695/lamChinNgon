@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rectang</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1078px" height="768px" style="border: 1px solid fuchsia;"></canvas>
+<script>
+    function rectang(a, b,) {
+        this.a = a;
+        this.b = b;
+        // this.s = s;
+        // this.c = c;
+    }
+
+    function randomHex() {
+        return Math.floor(Math.random() * 225);
+    }
+
+    function getRamdomColor() {
+        let red = randomHex();
+        let green = randomHex();
+        let blue = randomHex();
+        return "rgb(" + red + "," + green + "," + blue + ")";
+    }
+
+    function createRectang() {
+        ctx = document.getElementById("myCanvas").getContext("2d");
+        let a = parseInt(prompt("nhap chieu dai : "));
+        let b = parseInt(prompt("nhap chieu rong : "));
+        let s = a * b;
+        let c = (a + b) * 2;
+        document.write("Dien tich la : " + s + "<br>");
+        document.write("Chu vi la : " + c);
+        let color = getRamdomColor();
+        let Rectang = new rectang(a, b);
+        ctx.fillRect(0, 0, a, b);
+        ctx.fillStyle = color;
+        ctx.fill();
+    }
+
+    createRectang();
+
+</script>
+</body>
+</html>

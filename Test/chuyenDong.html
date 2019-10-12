@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyen Dong</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1070 px" height="520 px" style="border: 1px solid #d30106;"></canvas>
+<script type="text/javascript">
+    let canvas;
+    let ctx;
+    let _ball;
+    let _balls = [];
+    window.onload = function () {
+        canvas = document.getElementById("myCanvas");
+        ctx = canvas.getContext("2d");
+        for (let i = 0; i < 30; i++) {
+            console.log(canvas);
+            _ball = new Ball(getRandom(0,canvas.width), getRandom(0,canvas.height), getRandom(10, 30), getRandom(3, ));
+            console.log(_ball);
+            _ball.setDirection(getRandom(4,0));
+            _balls.push(_ball);
+        }
+
+        setInterval("update()", 20);
+    }
+
+    function update() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < _balls.length; i++) {
+            _balls[i].checkConlis();
+            _balls[i].move();
+            _balls[i].draw();
+        }
+    }
+
+    let Ball = function(x, y, radius, speed) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.speedX = speed;
+        this.speedY = speed;
+    }
+
+    Ball.prototype.draw = function () {
+        // ctx = document.getElementById("mycanvas").getContext("2d");
+        ctx.beginPath();
+        ctx.fillStyle = "green";
+        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+        ctx.fill();
+    };
+    Ball.prototype.move = function () {
+        this.x += this.speedX;
+        this.y += this.speedY;
+    }
+    Ball.prototype.setDirection = function (dir) {
+        switch (dir) {
+            case 0:
+                break;
+            case 1:
+                this.speedY = -this.speedY;
+                break;
+            case 2:
+                this.speedX = -this.speedX;
+                this.speedY = -this.speedY;
+                break;
+            case 3:
+                this.speedX = -this.speedX;
+                break;
+        }
+        this.x += this.speedX;
+        this.y += this.speedY;
+    };
+    Ball.prototype.checkConlis = function () {
+        if (this.x + this.radius >= canvas.width || this.x - this.radius <= 0) {
+            this.speedX = -this.speedX;
+        }
+        if (this.y + this.radius >= canvas.height || this.y - this.radius <= 0) {
+            this.speedY = -this.speedY;
+        }
+    };
+
+    function getRandom(min, max) {
+        return Math.floor(Math.random() * (max-min)) + min;
+    }
+
+
+</script>
+</body>
+</html>

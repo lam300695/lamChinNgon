@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linh Tinh</title>
+</head>
+<body onload="run()">
+<canvas id="myCanvas" width="1750px" height="780px" style="border:1px solid #d3d3d3; "></canvas>
+<script>
+    function Circle(x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
+    function createCircle() {
+        ctx = document.getElementById("myCanvas").getContext("2d");
+        let x = Math.random() * window.innerHeight;
+        let y = Math.random() * window.innerWidth;
+        let radius = Math.floor(Math.random() * 80);
+        let circle = new Circle(x, y, radius);
+        ctx.beginPath();
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+        ctx.fill();
+    }
+
+    function mutilCircle() {
+        for (let i = 0; i < 80; i++)
+            createCircle();
+    }
+
+    function left() {
+        let dichuyen = createCircle();
+        dichuyen.style.top = parseInt(dichuyen.style.top) - 100 + "px";
+    }
+
+    function right() {
+        let dichuyen = createCircle();
+        dichuyen.style.top = parseInt(dichuyen.style.top) + 100 + "px";
+    }
+
+    function upTo() {
+        let dichuyen = createCircle();
+        dichuyen.style.left = parseInt(dichuyen.style.left) - 100 + "px";
+    }
+
+    function downTo() {
+        let dichuyen = createCircle();
+        dichuyen.style.left = parseInt(dichuyen.style.left) + 100 + "px";
+    }
+
+    function moveSelect(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                upTo();
+                break;
+            case 39:
+                downTo();
+                break;
+            case 38:
+                left();
+                break;
+            case 40:
+                right();
+                break;
+        }
+    }
+
+    function run() {
+        window.addEventListener("keydown", moveSelect);
+    }
+</script>
+</body>
+</html>

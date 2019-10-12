@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 8</title>
+</head>
+<body>
+<b>Nhap vao</b> : <input id="display"/>
+<button onclick="check()">Find</button>
+<p id="output"></p>
+<script>
+    function check() {
+        let x = document.getElementById("output");
+        let num = document.getElementById("display").value;
+        let arr = ["dog", "cat", "camel", "cat", "lion"];
+        for (let i = 0; i < arr.length; i++) {
+            if (num === arr[i]) {
+                x.innerHTML = "co";
+                return;
+            }
+        }
+        x.innerHTML = "-1";
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lam lai Adam</title>
+</head>
+<body>
+<script>
+    function Apple(weight) {
+        this.weight = weight;
+
+        this.decreWeight = function () {
+            this.weight--;
+        }
+        this.isEmpty = function () {
+            if (this.weight > 0) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
+    function Human(name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+
+        this.eat = function (apple) {
+            if (!apple.isEmpty()) {
+                apple.decreWeight();
+                this.increWeight();
+            }
+            else {
+                alert("het tao roi");
+            }
+        }
+        this.increWeight = function () {
+                this.weight++;
+        }
+        this.getInfo = function () {
+            return this.name + "this weight is : " + this.weight;
+        }
+    }
+
+    let apple = new Apple(10);
+    let adam = new Human("adam", "male", 75);
+    let evar = new Human("evar", "female", 55);
+    adam.eat(apple);
+    console.log(adam.getInfo());
+</script>
+</body>
+</html>

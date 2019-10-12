@@ -5,11 +5,11 @@
     <title>bai 4</title>
 </head>
 <body>
-<fieldset>
+<fieldset style= "width: 300px">
     <legend><h3>Star</h3></legend>
     Input star : <input id="display">
-    <button onclick="check()">Find</button>
-    <p id="output"></p>
+    <button onclick="check()" style="background: #ffadd7">Find</button>
+    <p id="output" style="border: brown"></p>
     <script>
         function check() {
             let arr = ["Polaris", "Aldebaran", "Deneb", "Vega", " Altair", " Dubhe", "Regulus"];
@@ -22,7 +22,7 @@
                     return;
                 }
             }
-            x.innerHTML = " khong co";
+            x.innerHTML = " Không có";
         }
     </script>
 </fieldset>
