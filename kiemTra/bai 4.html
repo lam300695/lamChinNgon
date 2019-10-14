@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 2</title>
+</head>
+<body>
+<p id="inra"></p>
+<script>
+    let x = document.getElementById("inra");
+    let arr = [1,2,3,4,5,6];
+    let sum = 0;
+
+    function tinhTong() {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 1) {
+                sum+=arr[i];
+            }
+        }
+        alert(sum);
+    }
+    tinhTong();
+</script>
+
+</body>
+</html>

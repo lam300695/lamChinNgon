@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+</head>
+<body>Nhap tuoi :
+<input id ="input">
+<button onclick="tinhTuoi()">Tinh tuoi</button>
+<p id="inra"></p>
+<script>
+    let x = document.getElementById("inra");
+    let date = new Date();
+    let year = date.getFullYear();;
+
+
+    function tinhTuoi() {
+        let namSinh = document.getElementById("input").value;
+        if (namSinh < year){
+        let tuoi = year - namSinh;
+        x.innerHTML = "Tuoi ban la : " + tuoi;
+        }
+        else {
+            x.innerHTML = "khong hop le";
+        }
+    }
+</script>
+</body>
+</html>

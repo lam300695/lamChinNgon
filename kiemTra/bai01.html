@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 01</title>
+</head>
+<body>
+Enter a number :
+<input id="myInput">
+<button onclick="print()">Show</button>
+<p id="display"></p>
+<script>
+    let x = document.getElementById("display");
+
+
+    function checkNum(number) {
+        let num = parseInt(number);
+        for (let i = 2; i < num; i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function print() {
+        let countNum = parseInt(document.getElementById("myInput").value);
+        let count = 0;
+        let num = 2;
+        for (count = 0; count <= countNum; count++) {
+            if (checkNum(num)) {
+                x.innerHTML += num + ",";
+                count++;
+            }
+            num++;
+        }
+    }
+
+</script>
+</body>
+</html>
