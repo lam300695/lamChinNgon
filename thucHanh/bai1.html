@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 1</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let sum = 0;
+    for (let i = 0; i < 1000; i++) {
+        let c = Math.floor(Math.random() * 100);
+        arr.push(c);
+    }
+
+    function check() {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 3 === 0) {
+                sum += arr[i];
+            }
+            if (arr[i] % 3 ===1){
+                continue;
+            }
+            console.log(sum);
+        }
+    }
+
+    check();
+</script>
+
+</body>
+</html>
